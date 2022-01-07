@@ -13,11 +13,11 @@ global.moment = Moment;
 require('daterangepicker');
 
 // ------ AdminLTE framework ------
-require('./admin-lte.scss');
+require('./adminlte/admin-lte.scss');
 require('admin-lte/dist/css/AdminLTE.min.css');
 require('admin-lte/dist/css/skins/_all-skins.css');
-require('./admin-lte-extensions.scss');
-require('../userfrosting/css/userfrosting.css');
+require('./adminlte/admin-lte-extensions.scss');
+require('./userfrosting/css/userfrosting.css');
 
 global.$.AdminLTE = {};
 global.$.AdminLTE.options = {};
