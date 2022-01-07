@@ -33,5 +33,9 @@ class="hold-transition skin-{{site.AdminLTE.skin}} layout-top-nav"
     {% block footer %}
         {% include "pages/partials/footer.html.twig" %}
     {% endblock %}
+
+    {% block uf_alerts_template %}
+        {% include "pages/partials/alerts.html.twig" %}
+    {% endblock %}
 </div><!-- ./wrapper -->
 {% endblock %}
