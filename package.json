@@ -1,4 +1,8 @@
 {
+    "name": "theme-adminlte",
+    "license": "MIT",
+    "version": "1.0.0",
+    "description": "Admin LTE Theme for UserFrosting 5",
     "dependencies": {
         "@fortawesome/fontawesome-free": "~5.15.2",
         "admin-lte": "^2.4",
