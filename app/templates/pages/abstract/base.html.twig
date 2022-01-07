@@ -23,8 +23,7 @@
                 {# Override this block in a child layout template or page template to override site-level stylesheets. #}
                 {% block stylesheets_site %}
                     <!-- Include main CSS asset bundle -->
-                    {# {{ assets.css() | raw }} #}
-                    {{ encore_entry_link_tags('adminlte') }}
+                    {{ encore_entry_link_tags('app') }}
                 {% endblock %}
 
                 {# Override this block in a child layout template or page template to specify or override stylesheets for groups of similar pages. #}
@@ -51,13 +50,6 @@
                 <link href="{{site.uri.base.scheme}}://{% block page_canonical %}{% endblock %}" rel="canonical" />
             {% endif %}
 
-            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-            <!--[if lt IE 9]>
-                <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-                <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-            <![endif]-->
-
             {% include "pages/partials/analytics.html.twig" %}
         </head>
     {% endblock %}
@@ -80,14 +72,7 @@
             {% block scripts %}
                 {# Override this block in a child layout template or page template to override site-level scripts. #}
                 {% block scripts_site %}
-                    {{ encore_entry_script_tags('adminlte') }}
-
-                    <!-- Load jQuery -->
-                    {# // <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script> #}
-                    <!-- Fallback if CDN is unavailable -->
-                    {# // <script>window.jQuery || document.write('<script src="{{ assets.url("assets://vendor/jquery/dist/jquery.min.js", true) }}"><\/script>')</script> #}
-
-                    {# {{ assets.js() | raw }} #}
+                    {{ encore_entry_script_tags('app') }}
                 {% endblock %}
 
                 {# Override this block in a child layout template or page template to specify or override scripts for groups of similar pages. #}

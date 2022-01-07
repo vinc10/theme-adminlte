@@ -1,8 +1,7 @@
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
       {{ translate("BUILT_WITH_UF") | raw }} &middot;
-      <a href="{{ urlFor('legal') }}">{{ translate("TOS") }}</a> &middot;
-      <a href="{{ urlFor('privacy') }}">{{ translate("PRIVACY") }}</a>
+      {% block footer_content %}{% include "content/footer-nav.html.twig" %}{% endblock %}
     </div>
     &copy; <a href="{{ urlFor('index') }}">{{site.title}}</a>, {{ "now"|date("Y") }}. <span class="hidden-xs">{{ translate("ADMINLTE_THEME_BY") | raw }}.</span>
 </footer>
