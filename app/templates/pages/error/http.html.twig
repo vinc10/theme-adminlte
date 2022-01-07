@@ -1,0 +1,14 @@
+{% extends "pages/error/error.html.twig" %}
+
+{% block page_title %}{{ translate('ERROR.' ~ status ~ '.TITLE') }}{% endblock %}
+
+{% block page_description %}{{ translate('ERROR.' ~ status ~ '.DESCRIPTION') }}{% endblock %}
+
+{% block headline %}<h2 class="headline text-yellow">{{ status }}</h2>{% endblock %}
+
+{% block heading %}<i class="fas {{icon}} text-yellow"></i> {{ translate('ERROR.' ~ status ~ '.TITLE') }}{% endblock %}
+
+{% block content %}
+    <p>{{ translate('ERROR.' ~ status ~ '.DESCRIPTION') }}</p>
+    <p><a href="{{ urlFor('index') }}">{{ translate('ERROR.RETURN') }}</a></p>
+{% endblock %}
