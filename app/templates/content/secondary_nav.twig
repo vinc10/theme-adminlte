@@ -1,0 +1,7 @@
+{% if not checkAuthenticated() %}
+    <li>
+        <a href="{{site.uri.public}}/account/sign-in" class="nav-highlight">{{translate("SIGNIN")}}</a>
+    </li>
+{% else %}
+    {% include "navigation/user-card.html.twig" %}
+{% endif %}
