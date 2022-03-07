@@ -24,11 +24,16 @@
         {
             "type": "vcs",
             "url": "https://github.com/userfrosting/sprinkle-core.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/userfrosting/sprinkle-account.git"
         }
     ],
     "require": {
         "php": "^8.0",
-        "userfrosting/sprinkle-core": "*"
+        "userfrosting/sprinkle-core": "*",
+        "userfrosting/sprinkle-account": "*"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0"

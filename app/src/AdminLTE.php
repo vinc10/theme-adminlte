@@ -10,6 +10,8 @@
 
 namespace UserFrosting\Theme\AdminLTE;
 
+use UserFrosting\Sprinkle\Account\Account;
+use UserFrosting\Sprinkle\Core\Core;
 use UserFrosting\Sprinkle\SprinkleRecipe;
 
 class AdminLTE implements SprinkleRecipe
@@ -43,7 +45,10 @@ class AdminLTE implements SprinkleRecipe
      */
     public function getSprinkles(): array
     {
-        return [];
+        return [
+            Core::class,
+            Account::class,
+        ];
     }
 
     /**

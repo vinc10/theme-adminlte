@@ -7,11 +7,31 @@
 # Ignore developer resources
 _meta/
 
+# Ignore personal config files (dev)
+app/.env
+
+# Ignore log, cache, sessions and storage directories
+app/cache/*
+app/database/*
+app/logs/*
+app/sessions/*
+app/storage/*
+
+# Unignore log, cache, sessions and storage .gitkeeps
+!app/cache/.gitkeep
+!app/database/.gitkeep
+!app/logs/.gitkeep
+!app/sessions/.gitkeep
+!app/storage/.gitkeep
+
 # Ignore Composer vendor
 vendor/
 
 # Ignore node modules
 node_modules/
+
+# Ignore compiled assets
+public/assets/
 
 # Ignore dev utils cache
 .phpunit.result.cache
