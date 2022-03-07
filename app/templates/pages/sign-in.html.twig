@@ -13,7 +13,7 @@
 <div class="login-box">
     {% block loginLogo %}
     <div class="login-logo">
-        <a href="{{site.uri.public}}">{{site.title}}</a>
+        <a href="{{ urlFor('index') }}">{{site.title}}</a>
     </div>
     <!-- /.login-logo -->
     {% endblock %}
@@ -25,7 +25,7 @@
         <div class="form-alerts" id="alerts-page"></div>
 
         {% block loginForm %}
-        <form action="{{site.uri.public}}/account/login" id="sign-in" method="post">
+        <form action="{{ urlFor('account.login') }}" id="sign-in" method="post">
           {% include "forms/csrf.html.twig" %}
           <div class="form-group has-feedback">
             <input type="text" class="form-control" placeholder="{% if site.login.enable_email %}{{translate('EMAIL_OR_USERNAME')}}{% else %}{{translate('USERNAME')}}{% endif %}" name="user_name">
@@ -58,7 +58,7 @@
             <a href="{{site.uri.public}}/account/resend-verification">{{translate('ACCOUNT.VERIFICATION.RESEND')}}</a><br>
         {% endif %}
         {% if site.registration.enabled %}
-            <a href="{{site.uri.public}}/account/register">{{translate('REGISTER')}}</a>
+            <a href="{{ urlFor('page.register') }}">{{translate('REGISTER')}}</a>
         {% endif %}
         {% endblock %}
 

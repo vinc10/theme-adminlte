@@ -56,7 +56,9 @@ class AdminLTE implements SprinkleRecipe
      */
     public function getRoutes(): array
     {
-        return [];
+        return [
+            AuthPages::class,
+        ];
     }
 
     /**
