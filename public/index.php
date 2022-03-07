@@ -23,8 +23,8 @@ if (PHP_SAPI == 'cli-server') {
     $_SERVER['SCRIPT_NAME'] = '/index.php';
 }
 
-use UserFrosting\Theme\AdminLTE\AdminLTE;
+use UserFrosting\Develop\AdminLTE\App;
 use UserFrosting\UserFrosting;
 
-$uf = new UserFrosting(AdminLTE::class);
+$uf = new UserFrosting(App::class);
 $uf->run();

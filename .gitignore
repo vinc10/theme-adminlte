@@ -8,21 +8,21 @@
 _meta/
 
 # Ignore personal config files (dev)
-app/.env
+develop/.env
 
 # Ignore log, cache, sessions and storage directories
-app/cache/*
-app/database/*
-app/logs/*
-app/sessions/*
-app/storage/*
+develop/cache/*
+develop/database/*
+develop/logs/*
+develop/sessions/*
+develop/storage/*
 
 # Unignore log, cache, sessions and storage .gitkeeps
-!app/cache/.gitkeep
-!app/database/.gitkeep
-!app/logs/.gitkeep
-!app/sessions/.gitkeep
-!app/storage/.gitkeep
+!develop/cache/.gitkeep
+!develop/database/.gitkeep
+!develop/logs/.gitkeep
+!develop/sessions/.gitkeep
+!develop/storage/.gitkeep
 
 # Ignore Composer vendor
 vendor/
