@@ -16,7 +16,7 @@ return [
      * ----------------------------------------------------------------------
      * Site Settings
      * ----------------------------------------------------------------------
-     * Add AdminLTE skin color config
+     * Add AdminLTE skin color config.
      */
     'site' => [
         // AdminLTE skin color

@@ -29,7 +29,7 @@ class AdminLTE implements SprinkleRecipe
      */
     public function getPath(): string
     {
-        return __DIR__ . '/../';
+        return __DIR__.'/../';
     }
 
     /**
