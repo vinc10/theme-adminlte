@@ -6,7 +6,7 @@ Admin LTE Theme for UserFrosting 5
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 <!-- [![Build](https://img.shields.io/github/workflow/status/userfrosting/theme-adminlte/Build/main?logo=github)](https://github.com/userfrosting/theme-adminlte/actions) -->
 <!-- [![Codecov](https://codecov.io/gh/userfrosting/theme-adminlte/branch/main/graph/badge.svg)](https://app.codecov.io/gh/userfrosting/theme-adminlte/branch/main) -->
-<!-- [![StyleCI](https://github.styleci.io/repos/444619108/shield?branch=main&style=flat)](https://github.styleci.io/repos/444619108) -->
+[![StyleCI](https://github.styleci.io/repos/445386142/shield?branch=main&style=flat)](https://github.styleci.io/repos/445386142)
 <!-- [![PHPStan](https://img.shields.io/github/workflow/status/userfrosting/theme-adminlte/PHPStan/main?label=PHPStan)](https://github.com/userfrosting/theme-adminlte/actions/workflows/PHPStan.yml) -->
 [![Donate](https://img.shields.io/badge/Open%20Collective-Donate-blue.svg)](https://opencollective.com/userfrosting#backer)
 

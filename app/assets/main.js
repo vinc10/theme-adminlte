@@ -29,3 +29,7 @@ require('admin-lte/dist/js/adminlte.min');
 // ------ icheck for enhanced radio buttons and checkboxes ------
 require('icheck');
 require('icheck/skins/square/blue.css');
+
+require('fastclick');
+require('select2');
+require('clipboard');

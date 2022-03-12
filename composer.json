@@ -57,5 +57,6 @@
             "UserFrosting\\Develop\\AdminLTE\\": "develop/"
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

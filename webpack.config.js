@@ -10,6 +10,7 @@ Encore
     .setOutputPath('public/assets')
     .setPublicPath('/assets/')
     .addEntry('app', './app/assets/main.js')
+    .addEntry('page.register', './app/assets/register.js')
     // .copyFiles({ from: './app/assets/favicons', to: 'favicons/[path][name].[hash:8].[ext]' })
     .splitEntryChunks()
     .enableSingleRuntimeChunk()

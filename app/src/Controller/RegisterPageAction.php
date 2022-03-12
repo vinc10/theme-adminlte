@@ -14,12 +14,12 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Views\Twig;
+use UserFrosting\Config\Config;
 use UserFrosting\Fortress\Adapter\JqueryValidationAdapter;
 use UserFrosting\Fortress\RequestSchema;
 use UserFrosting\Fortress\RequestSchema\RequestSchemaInterface;
 use UserFrosting\I18n\Translator;
 use UserFrosting\Sprinkle\Core\I18n\SiteLocale;
-use UserFrosting\Support\Repository\Repository as Config;
 
 /**
  * Render the account registration page for UserFrosting.
@@ -71,7 +71,7 @@ class RegisterPageAction
      */
     protected function handle(Request $request): array
     {
-        if (!$this->config->get('site.registration.enabled')) {
+        if ($this->config->get('site.registration.enabled') === false) {
             throw new HttpNotFoundException($request);
         }
 
