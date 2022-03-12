@@ -8,10 +8,6 @@ require('bootstrap-sass');
 require('jquery-slimscroll');
 require('bootstrap-select');
 
-const Moment = require('moment');
-global.moment = Moment;
-require('daterangepicker');
-
 // ------ AdminLTE framework ------
 require('./adminlte/admin-lte.scss');
 require('admin-lte/dist/css/AdminLTE.min.css');
@@ -23,13 +19,25 @@ global.$.AdminLTE = {};
 global.$.AdminLTE.options = {};
 require('admin-lte/dist/js/adminlte.min');
 
-// ------ Theme itself ------
-// require('./default_avatar.png');
-
-// ------ icheck for enhanced radio buttons and checkboxes ------
+// ------ Other dependencies ------
+const Handlebars = require("handlebars/dist/handlebars");
+global.Handlebars = Handlebars;
+require('jquery-validation');
+require('jquery-slimscroll');
 require('icheck');
 require('icheck/skins/square/blue.css');
-
 require('fastclick');
 require('select2');
-require('clipboard');
+require('daterangepicker');
+
+const Moment = require('moment');
+global.moment = Moment;
+
+// ------ Global scripts ------
+require('./userfrosting/js/fortress-jqueryvalidation-methods');
+require('./userfrosting/js/attrchange');
+require('./userfrosting/js/uf-alerts');
+require('./userfrosting/js/uf-form');
+require('./userfrosting/js/uf-modal');
+require('./userfrosting/js/uf-copy');
+require('./userfrosting/js/uf-init');

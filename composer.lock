@@ -6447,12 +6447,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/userfrosting/sprinkle-core.git",
-                "reference": "b357e5612154ede55015f4af5d838caa36890cff"
+                "reference": "7e53ddbd4f90fde3caaa36afb1125e6113ce7579"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/userfrosting/sprinkle-core/zipball/b357e5612154ede55015f4af5d838caa36890cff",
-                "reference": "b357e5612154ede55015f4af5d838caa36890cff",
+                "url": "https://api.github.com/repos/userfrosting/sprinkle-core/zipball/7e53ddbd4f90fde3caaa36afb1125e6113ce7579",
+                "reference": "7e53ddbd4f90fde3caaa36afb1125e6113ce7579",
                 "shasum": ""
             },
             "require": {
@@ -6543,7 +6543,7 @@
                     "url": "https://opencollective.com/userfrosting"
                 }
             ],
-            "time": "2022-03-12T02:02:06+00:00"
+            "time": "2022-03-12T19:26:29+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

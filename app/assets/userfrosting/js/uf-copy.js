@@ -2,13 +2,13 @@
  * Copies text or control fields to clipboard.  Wrap a .js-copy-target and .js-copy-trigger inside a common .js-copy-container.
  */
 
+const Clipboard = require('clipboard');
+
 if (typeof $.uf === 'undefined') {
     $.uf = {};
 }
 
 $.uf.copy = function (button) {
-    var _this = this;
-
     var clipboard = new Clipboard(button, {
         text: function(trigger) {
             var el = $(trigger).closest('.js-copy-container').find('.js-copy-target');

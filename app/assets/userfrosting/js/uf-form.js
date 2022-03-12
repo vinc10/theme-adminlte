@@ -227,8 +227,10 @@
         // Error messages
         if (this._debugAjax && jqXHR.responseText) {
             this.$element.trigger('submitError.ufForm', [jqXHR, textStatus, errorThrown]);
-            document.write(jqXHR.responseText);
-            document.close();
+            this.settings.msgTarget.ufAlerts('push', 'danger', jqXHR.responseJSON.description).ufAlerts('render');
+            // TODO : Below only works if the response is HTML, above if JSON. Might be worth testing for both
+            // document.write(jqXHR.responseText);
+            // document.close();
         } else {
             if (this.settings.DEBUG) {
                 console.error(jqXHR.status + ': ' + jqXHR.responseText);

@@ -13,6 +13,7 @@ namespace UserFrosting\Theme\AdminLTE;
 use UserFrosting\Sprinkle\Account\Account;
 use UserFrosting\Sprinkle\Core\Core;
 use UserFrosting\Sprinkle\SprinkleRecipe;
+use UserFrosting\Theme\AdminLTE\ServicesProvider\ControllerService;
 
 class AdminLTE implements SprinkleRecipe
 {
@@ -66,7 +67,9 @@ class AdminLTE implements SprinkleRecipe
      */
     public function getServices(): array
     {
-        return [];
+        return [
+            ControllerService::class,
+        ];
     }
 
     /**
