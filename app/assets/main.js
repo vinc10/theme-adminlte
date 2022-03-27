@@ -28,7 +28,8 @@ require('jquery-slimscroll');
 require('icheck');
 require('icheck/skins/square/blue.css');
 require('fastclick');
-require('select2');
+require('select2/dist/js/select2.full.js');
+require('select2/dist/css/select2.css');
 require('daterangepicker');
 
 const Moment = require('moment');
