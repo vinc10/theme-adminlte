@@ -12,7 +12,7 @@
 {% block content %}
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{site.uri.public}}">{{site.title}}</a>
+        <a href="{{ urlFor('index') }}">{{site.title}}</a>
     </div>
     <!-- /.login-logo -->
 
@@ -20,7 +20,7 @@
         <p class="login-box-msg"><strong>{{translate('REGISTER')}}</strong></p>
         <div class="form-alerts" id="alerts-page"></div>
 
-        <form id="register" role="form" action="{{site.uri.public}}/account/register" method="post" class="r-form">
+        <form id="register" role="form" action="{{ urlFor('account.register') }}" method="post" class="r-form">
             {% include "forms/csrf.html.twig" %}
             <label for="r-form-first-name">{{translate('NAME_AND_EMAIL')}}</label>
             <div class="row">
@@ -74,7 +74,7 @@
                             <input type="text" name="captcha" placeholder="{{translate('CAPTCHA.SPECIFY')}}" class="form-control" id="r-form-captcha">
                         </div>
                         <div class="col-md-6 form-col-captcha">
-                                <img src="{{site.uri.public}}/account/captcha" id="captcha" data-target="#r-form-captcha">
+                                <img src="{{ urlFor('account.captcha') }}" id="captcha" data-target="#r-form-captcha">
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
             </div>
             <div style="padding-top: 10px;">
                 {{translate('SIGN_IN_HERE', {
-                    'url' : site.uri.public ~'/account/sign-in'
+                    'url' : urlFor('page.login')
                 }) | raw}}
             </div>
         </form>
