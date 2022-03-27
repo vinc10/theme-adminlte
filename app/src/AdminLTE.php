@@ -10,12 +10,17 @@
 
 namespace UserFrosting\Theme\AdminLTE;
 
+use UserFrosting\Event\EventListenerRecipe;
 use UserFrosting\Sprinkle\Account\Account;
+use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLoginEvent;
+use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLogoutEvent;
 use UserFrosting\Sprinkle\Core\Core;
 use UserFrosting\Sprinkle\SprinkleRecipe;
+use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedAfterLogin;
+use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedAfterLogout;
 use UserFrosting\Theme\AdminLTE\ServicesProvider\ControllerService;
 
-class AdminLTE implements SprinkleRecipe
+class AdminLTE implements SprinkleRecipe, EventListenerRecipe
 {
     /**
      * {@inheritdoc}
@@ -30,7 +35,7 @@ class AdminLTE implements SprinkleRecipe
      */
     public function getPath(): string
     {
-        return __DIR__.'/../';
+        return __DIR__ . '/../';
     }
 
     /**
@@ -78,5 +83,20 @@ class AdminLTE implements SprinkleRecipe
     public function getMiddlewares(): array
     {
         return [];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getEventListeners(): array
+    {
+        return [
+            UserRedirectedAfterLogoutEvent::class => [
+                UserRedirectedAfterLogout::class,
+            ],
+            UserRedirectedAfterLoginEvent::class => [
+                UserRedirectedAfterLogin::class,
+            ]
+        ];
     }
 }

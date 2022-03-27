@@ -27,3 +27,17 @@ class AuthPages implements RouteDefinitionInterface
         })->add(GuestGuard::class);
     }
 }
+
+// TODO : Move to theme repo
+// $this->get('/forgot-password', 'UserFrosting\Sprinkle\Account\Controller\AccountController:pageForgotPassword')
+//    ->setName('forgot-password');
+
+// TODO : Move to theme repo
+// $this->get('/resend-verification', 'UserFrosting\Sprinkle\Account\Controller\AccountController:pageResendVerification');
+
+// TODO : Move to theme repo
+// $this->get('/set-password/confirm', 'UserFrosting\Sprinkle\Account\Controller\AccountController:pageResetPassword');
+
+// TODO : Move to theme repo
+// $this->get('/settings', 'UserFrosting\Sprinkle\Account\Controller\AccountController:pageSettings')
+//    ->add('authGuard');

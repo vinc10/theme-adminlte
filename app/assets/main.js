@@ -18,6 +18,7 @@ require('./userfrosting/css/userfrosting.css');
 global.$.AdminLTE = {};
 global.$.AdminLTE.options = {};
 require('admin-lte/dist/js/adminlte.min');
+require('./adminlte/AdminLTE-custom');
 
 // ------ Other dependencies ------
 const Handlebars = require("handlebars/dist/handlebars");

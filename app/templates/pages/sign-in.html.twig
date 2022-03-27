@@ -87,6 +87,11 @@
     );
     </script>
 
+    <!-- Manually include alerts, as default abstract is not used -->
+    {% block uf_alerts_template %}
+        {% include "pages/partials/alerts.html.twig" %}
+    {% endblock %}
+
     <!-- Include page-specific JS -->
-    {{ assets.js('js/pages/sign-in') | raw }}
+    {{ encore_entry_script_tags('page.sign-in') }}
 {% endblock %}
