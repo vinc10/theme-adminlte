@@ -16,7 +16,7 @@ use Slim\Interfaces\RouteParserInterface;
 use UserFrosting\Sprinkle\Core\Event\Contract\RedirectingEventInterface;
 
 /**
- * Set redirect to index
+ * Set redirect to index.
  */
 class UserRedirectedToIndex
 {

@@ -1,18 +1,17 @@
 <?php
 
 /*
- * UserFrosting Account Sprinkle (http://www.userfrosting.com)
+ * UserFrosting AdminLTE Theme (http://www.userfrosting.com)
  *
- * @link      https://github.com/userfrosting/sprinkle-account
- * @copyright Copyright (c) 2022 Alexander Weissman & Louis Charette
- * @license   https://github.com/userfrosting/sprinkle-account/blob/master/LICENSE.md (MIT License)
+ * @link      https://github.com/userfrosting/theme-adminlte
+ * @copyright Copyright (c) 2021 Alexander Weissman & Louis Charette
+ * @license   https://github.com/userfrosting/theme-adminlte/blob/master/LICENSE (MIT License)
  */
 
 namespace UserFrosting\Sprinkle\Account\Tests\Integration\Controller;
 
 use Mockery as m;
 use UserFrosting\Sprinkle\Account\Controller\AccountController;
-use UserFrosting\Sprinkle\Account\Database\Models\Interfaces\UserInterface;
 use UserFrosting\Sprinkle\Account\Database\Models\User;
 use UserFrosting\Sprinkle\Account\Testing\withTestUser;
 use UserFrosting\Sprinkle\Account\Tests\AccountTestCase;
@@ -23,7 +22,7 @@ use UserFrosting\Support\Exception\ForbiddenException;
 use UserFrosting\Support\Exception\NotFoundException;
 
 /**
- * Tests AccountController
+ * Tests AccountController.
  */
 class AccountControllerTest extends AccountTestCase
 {
@@ -37,7 +36,7 @@ class AccountControllerTest extends AccountTestCase
     protected static $initialized = false;
 
     /**
-     * Setup test database for controller tests
+     * Setup test database for controller tests.
      */
     /*public function setUp(): void
     {
@@ -71,6 +70,7 @@ class AccountControllerTest extends AccountTestCase
 
     /**
      * @depends testControllerConstructor
+     *
      * @param AccountController $controller
      */
     /*public function testgetModalAccountTos(AccountController $controller)

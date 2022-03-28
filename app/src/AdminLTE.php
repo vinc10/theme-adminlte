@@ -35,7 +35,7 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
      */
     public function getPath(): string
     {
-        return __DIR__ . '/../';
+        return __DIR__.'/../';
     }
 
     /**
@@ -99,7 +99,7 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
             ],
             UserRedirectedAfterVerificationEvent::class => [
                 UserRedirectedToIndex::class,
-            ]
+            ],
         ];
     }
 }
