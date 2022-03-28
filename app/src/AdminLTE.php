@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * UserFrosting AdminLTE Theme (http://www.userfrosting.com)
  *
@@ -19,6 +21,7 @@ use UserFrosting\Sprinkle\Core\Core;
 use UserFrosting\Sprinkle\SprinkleRecipe;
 use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedToIndex;
 use UserFrosting\Theme\AdminLTE\ServicesProvider\ControllerService;
+use UserFrosting\Theme\AdminLTE\ServicesProvider\ErrorHandlerService;
 
 class AdminLTE implements SprinkleRecipe, EventListenerRecipe
 {
@@ -35,7 +38,7 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
      */
     public function getPath(): string
     {
-        return __DIR__.'/../';
+        return __DIR__ . '/../';
     }
 
     /**
@@ -74,6 +77,7 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
     {
         return [
             ControllerService::class,
+            ErrorHandlerService::class,
         ];
     }
 
