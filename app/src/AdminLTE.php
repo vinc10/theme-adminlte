@@ -14,10 +14,10 @@ use UserFrosting\Event\EventListenerRecipe;
 use UserFrosting\Sprinkle\Account\Account;
 use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLoginEvent;
 use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLogoutEvent;
+use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterVerificationEvent;
 use UserFrosting\Sprinkle\Core\Core;
 use UserFrosting\Sprinkle\SprinkleRecipe;
-use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedAfterLogin;
-use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedAfterLogout;
+use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedToIndex;
 use UserFrosting\Theme\AdminLTE\ServicesProvider\ControllerService;
 
 class AdminLTE implements SprinkleRecipe, EventListenerRecipe
@@ -92,10 +92,13 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
     {
         return [
             UserRedirectedAfterLogoutEvent::class => [
-                UserRedirectedAfterLogout::class,
+                UserRedirectedToIndex::class,
             ],
             UserRedirectedAfterLoginEvent::class => [
-                UserRedirectedAfterLogin::class,
+                UserRedirectedToIndex::class,
+            ],
+            UserRedirectedAfterVerificationEvent::class => [
+                UserRedirectedToIndex::class,
             ]
         ];
     }

@@ -13,19 +13,19 @@ declare(strict_types=1);
 namespace UserFrosting\Theme\AdminLTE\Listener;
 
 use Slim\Interfaces\RouteParserInterface;
-use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLogoutEvent;
+use UserFrosting\Sprinkle\Core\Event\Contract\RedirectingEventInterface;
 
 /**
- * Set redirect for Logout Activity
+ * Set redirect to index
  */
-class UserRedirectedAfterLogout
+class UserRedirectedToIndex
 {
     public function __construct(
         protected RouteParserInterface $routeParser,
     ) {
     }
 
-    public function __invoke(UserRedirectedAfterLogoutEvent $event): void
+    public function __invoke(RedirectingEventInterface $event): void
     {
         $path = $this->routeParser->urlFor('index');
         $event->setRedirect($path);

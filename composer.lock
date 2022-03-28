@@ -6369,12 +6369,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/userfrosting/sprinkle-account.git",
-                "reference": "ce2621f5fca5560039c34d12a3fabcc5a225512d"
+                "reference": "a5e9e4094d23d309541846fce85162f9e7e32b86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/userfrosting/sprinkle-account/zipball/ce2621f5fca5560039c34d12a3fabcc5a225512d",
-                "reference": "ce2621f5fca5560039c34d12a3fabcc5a225512d",
+                "url": "https://api.github.com/repos/userfrosting/sprinkle-account/zipball/a5e9e4094d23d309541846fce85162f9e7e32b86",
+                "reference": "a5e9e4094d23d309541846fce85162f9e7e32b86",
                 "shasum": ""
             },
             "require": {
@@ -6439,7 +6439,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-03-26T23:54:21+00:00"
+            "time": "2022-03-28T01:39:31+00:00"
         },
         {
             "name": "userfrosting/sprinkle-core",
@@ -6447,12 +6447,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/userfrosting/sprinkle-core.git",
-                "reference": "ee7a40557fccaac1e01e6f297edf58816ea32de4"
+                "reference": "eece542ce0f55c73e46be452a4a14147592bdc15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/userfrosting/sprinkle-core/zipball/ee7a40557fccaac1e01e6f297edf58816ea32de4",
-                "reference": "ee7a40557fccaac1e01e6f297edf58816ea32de4",
+                "url": "https://api.github.com/repos/userfrosting/sprinkle-core/zipball/eece542ce0f55c73e46be452a4a14147592bdc15",
+                "reference": "eece542ce0f55c73e46be452a4a14147592bdc15",
                 "shasum": ""
             },
             "require": {
@@ -6539,7 +6539,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-03-26T23:46:10+00:00"
+            "time": "2022-03-28T00:59:06+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
