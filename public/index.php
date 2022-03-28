@@ -15,7 +15,7 @@
  */
 
 // First off, we'll grab the Composer dependencies
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 // Workaround to get php built-in server to access legacy assets
 // @see : https://github.com/slimphp/Slim/issues/359#issuecomment-363076423
