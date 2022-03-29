@@ -13,9 +13,13 @@ declare(strict_types=1);
 namespace UserFrosting\Theme\AdminLTE\ServicesProvider;
 
 use UserFrosting\ServicesProvider\ServicesProviderInterface;
+use UserFrosting\Sprinkle\Account\Exceptions\AuthExpiredException;
+use UserFrosting\Sprinkle\Account\Exceptions\AuthGuardException;
 use UserFrosting\Sprinkle\Account\Exceptions\LoggedInException;
 use UserFrosting\Sprinkle\Core\Error\ExceptionHandlerMiddleware;
 use UserFrosting\Theme\AdminLTE\Error\Handler\LoggedInExceptionHandler;
+use UserFrosting\Theme\AdminLTE\Error\Handler\RedirectToLoginDangerHandler;
+use UserFrosting\Theme\AdminLTE\Error\Handler\RedirectToLoginInfoHandler;
 
 class ErrorHandlerService implements ServicesProviderInterface
 {
@@ -24,6 +28,8 @@ class ErrorHandlerService implements ServicesProviderInterface
         return [
             ExceptionHandlerMiddleware::class => \DI\decorate(function (ExceptionHandlerMiddleware $middleware) {
                 $middleware->registerHandler(LoggedInException::class, LoggedInExceptionHandler::class);
+                $middleware->registerHandler(AuthGuardException::class, RedirectToLoginInfoHandler::class);
+                $middleware->registerHandler(AuthExpiredException::class, RedirectToLoginDangerHandler::class);
 
                 return $middleware;
             }),
