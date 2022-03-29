@@ -50,7 +50,7 @@ abstract class AbstractRedirectExceptionHandler implements ExceptionHandlerInter
     }
 
     /**
-     * Add message to Alert Stream
+     * Add message to Alert Stream.
      *
      * @param Throwable $exception
      */
