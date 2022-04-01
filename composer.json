@@ -44,7 +44,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "UserFrosting\\Develop\\AdminLTE\\": "develop/"
+            "UserFrosting\\Develop\\AdminLTE\\": "develop/",
+            "UserFrosting\\Theme\\AdminLTE\\Tests\\": "app/tests/"
         }
     },
     "minimum-stability": "dev",

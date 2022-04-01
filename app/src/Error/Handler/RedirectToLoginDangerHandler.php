@@ -17,6 +17,23 @@ namespace UserFrosting\Theme\AdminLTE\Error\Handler;
  */
 final class RedirectToLoginDangerHandler extends AbstractRedirectExceptionHandler
 {
-    protected string $type = 'danger';
-    protected string $route = 'page.login';
+    /**
+     * Return redirect route.
+     *
+     * @return string
+     */
+    protected function determineRoute(): string
+    {
+        return $this->routeParser->urlFor('page.login');
+    }
+
+    /**
+     * Return redirect route.
+     *
+     * @return string
+     */
+    protected function determineAlertType(): ?string
+    {
+        return 'danger';
+    }
 }

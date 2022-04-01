@@ -12,32 +12,28 @@ declare(strict_types=1);
 
 namespace UserFrosting\Theme\AdminLTE\Error\Handler;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Slim\Interfaces\RouteParserInterface;
-use Slim\Psr7\Factory\ResponseFactory;
-use Throwable;
-use UserFrosting\Sprinkle\Core\Error\Handler\ExceptionHandlerInterface;
-
 /**
  * Handler for LoggedInException. Redirect to index.
  */
-final class LoggedInExceptionHandler implements ExceptionHandlerInterface
+final class LoggedInExceptionHandler extends AbstractRedirectExceptionHandler
 {
-    public function __construct(
-        protected ResponseFactory $responseFactory,
-        protected RouteParserInterface $routeParser,
-    ) {
+    /**
+     * Return redirect route.
+     *
+     * @return string
+     */
+    protected function determineRoute(): string
+    {
+        return $this->routeParser->urlFor('index');
     }
 
     /**
-     * {@inheritDoc}
+     * Return redirect route.
+     *
+     * @return string
      */
-    public function handle(ServerRequestInterface $request, Throwable $exception): ResponseInterface
+    protected function determineAlertType(): ?string
     {
-        $path = $this->routeParser->urlFor('index');
-        $response = $this->responseFactory->createResponse(302);
-
-        return $response->withHeader('Location', $path);
+        return null;
     }
 }
