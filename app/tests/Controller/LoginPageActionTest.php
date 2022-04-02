@@ -20,7 +20,7 @@ class LoginPageActionTest extends AdminLTETestCase
     {
         $request = $this->createJsonRequest('GET', '/account/sign-in');
         $response = $this->handleRequest($request);
-        $this->assertResponseStatus(200, $response);
         $this->assertResponse('', $response);
+        $this->assertResponseStatus(200, $response);
     }
 }
