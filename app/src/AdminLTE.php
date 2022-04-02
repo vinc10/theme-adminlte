@@ -43,6 +43,7 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
 
     /**
      * {@inheritdoc}
+     * @codeCoverageIgnore
      */
     public function getBakeryCommands(): array
     {

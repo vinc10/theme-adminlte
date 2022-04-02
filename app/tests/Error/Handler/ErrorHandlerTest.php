@@ -43,7 +43,7 @@ class ErrorHandlerTest extends AdminLTETestCase
         /** @var AlertStream */
         $ms = $this->ci->get(AlertStream::class);
         $messages = $ms->getAndClearMessages();
-        $this->assertSame('info', end($messages)['type']);
+        $this->assertSame('info', end($messages)['type']); // @phpstan-ignore-line
     }
 
     public function testAuthGuardExceptionJson(): void
@@ -75,7 +75,7 @@ class ErrorHandlerTest extends AdminLTETestCase
         /** @var AlertStream */
         $ms = $this->ci->get(AlertStream::class);
         $messages = $ms->getAndClearMessages();
-        $this->assertSame('danger', end($messages)['type']);
+        $this->assertSame('danger', end($messages)['type']); // @phpstan-ignore-line
     }
 
     public function testAuthExpiredExceptionJson(): void
@@ -107,7 +107,7 @@ class ErrorHandlerTest extends AdminLTETestCase
         /** @var AlertStream */
         $ms = $this->ci->get(AlertStream::class);
         $messages = $ms->getAndClearMessages();
-        $this->assertSame('danger', end($messages)['type']);
+        $this->assertSame('danger', end($messages)['type']); // @phpstan-ignore-line
     }
 
     public function testLoggedInExceptionJson(): void
