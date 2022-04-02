@@ -20,6 +20,8 @@ use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterVerificationEvent;
 use UserFrosting\Sprinkle\Core\Core;
 use UserFrosting\Sprinkle\SprinkleRecipe;
 use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedToIndex;
+use UserFrosting\Theme\AdminLTE\Routes\AuthPages;
+use UserFrosting\Theme\AdminLTE\Routes\TosPages;
 use UserFrosting\Theme\AdminLTE\ServicesProvider\ControllerService;
 use UserFrosting\Theme\AdminLTE\ServicesProvider\ErrorHandlerService;
 
@@ -43,7 +45,7 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
 
     /**
      * {@inheritdoc}
-     * 
+     *
      * @codeCoverageIgnore
      */
     public function getBakeryCommands(): array
@@ -69,6 +71,7 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
     {
         return [
             AuthPages::class,
+            TosPages::class,
         ];
     }
 

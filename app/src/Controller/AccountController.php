@@ -29,26 +29,6 @@ use UserFrosting\Support\Exception\ForbiddenException;
 class AccountController extends SimpleController
 {
     /**
-     * Returns a modal containing account terms of service.
-     *
-     * This does NOT render a complete page.  Instead, it renders the HTML for the form, which can be embedded in other pages.
-     *
-     * AuthGuard: false
-     * Route: /modals/account/tos
-     * Route Name: {none}
-     * Request type: GET
-     *
-     * @param Request  $request
-     * @param Response $response
-     * @param array    $args
-     */
-    // TODO : Move to Theme repo
-    /*public function getModalAccountTos(Request $request, Response $response, $args)
-    {
-        return $this->ci->view->render($response, 'modals/tos.html.twig');
-    }*/
-
-    /**
      * Render the "forgot password" page.
      *
      * This creates a simple form to allow users who forgot their password to have a time-limited password reset link emailed to them.

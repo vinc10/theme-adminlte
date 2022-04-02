@@ -8,7 +8,7 @@
  * @license   https://github.com/userfrosting/theme-adminlte/blob/master/LICENSE (MIT License)
  */
 
-namespace UserFrosting\Theme\AdminLTE;
+namespace UserFrosting\Theme\AdminLTE\Routes;
 
 use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
@@ -25,6 +25,8 @@ class AuthPages implements RouteDefinitionInterface
             $group->get('/sign-in', LoginPageAction::class)->setName('page.login');
             $group->get('/register', RegisterPageAction::class)->setName('page.register');
         })->add(GuestGuard::class);
+
+        // $app->get('/modals/account/tos', 'UserFrosting\Sprinkle\Account\Controller\AccountController:getModalAccountTos');
     }
 }
 
