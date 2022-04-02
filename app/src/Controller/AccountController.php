@@ -29,37 +29,6 @@ use UserFrosting\Support\Exception\ForbiddenException;
 class AccountController extends SimpleController
 {
     /**
-     * Render the "forgot password" page.
-     *
-     * This creates a simple form to allow users who forgot their password to have a time-limited password reset link emailed to them.
-     * By default, this is a "public page" (does not require authentication).
-     *
-     * AuthGuard: false
-     * Route: /account/forgot-password
-     * Route Name: forgot-password
-     * Request type: GET
-     *
-     * @param Request  $request
-     * @param Response $response
-     * @param array    $args
-     */
-    // TODO : Move to Theme repo ?
-    /*public function pageForgotPassword(Request $request, Response $response, $args)
-    {
-        // Load validation rules
-        $schema = new RequestSchema('schema://requests/forgot-password.yaml');
-        $validator = new JqueryValidationAdapter($schema, $this->ci->translator);
-
-        return $this->ci->view->render($response, 'pages/forgot-password.html.twig', [
-            'page' => [
-                'validators' => [
-                    'forgot_password'    => $validator->rules('json', false),
-                ],
-            ],
-        ]);
-    }*/
-
-    /**
      * Render the "resend verification email" page.
      *
      * This is a form that allows users who lost their account verification link to have the link resent to their email address.

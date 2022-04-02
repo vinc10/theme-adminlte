@@ -6369,12 +6369,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/userfrosting/sprinkle-account.git",
-                "reference": "e88c23e37db5d43fae98f4b037b0f5afaa77c0ce"
+                "reference": "1590ee6cafb8555532481a6fb0b0bd455d6e3368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/userfrosting/sprinkle-account/zipball/e88c23e37db5d43fae98f4b037b0f5afaa77c0ce",
-                "reference": "e88c23e37db5d43fae98f4b037b0f5afaa77c0ce",
+                "url": "https://api.github.com/repos/userfrosting/sprinkle-account/zipball/1590ee6cafb8555532481a6fb0b0bd455d6e3368",
+                "reference": "1590ee6cafb8555532481a6fb0b0bd455d6e3368",
                 "shasum": ""
             },
             "require": {
@@ -6439,7 +6439,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-03-29T01:38:18+00:00"
+            "time": "2022-04-02T02:27:13+00:00"
         },
         {
             "name": "userfrosting/sprinkle-core",

@@ -14,6 +14,7 @@ use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
 use UserFrosting\Routes\RouteDefinitionInterface;
 use UserFrosting\Sprinkle\Account\Authenticate\GuestGuard;
+use UserFrosting\Theme\AdminLTE\Controller\ForgotPasswordPageAction;
 use UserFrosting\Theme\AdminLTE\Controller\LoginPageAction;
 use UserFrosting\Theme\AdminLTE\Controller\RegisterPageAction;
 
@@ -24,9 +25,8 @@ class AuthPages implements RouteDefinitionInterface
         $app->group('/account', function (RouteCollectorProxy $group) {
             $group->get('/sign-in', LoginPageAction::class)->setName('page.login');
             $group->get('/register', RegisterPageAction::class)->setName('page.register');
+            $group->get('/forgot-password', ForgotPasswordPageAction::class)->setName('page.forgot-password');
         })->add(GuestGuard::class);
-
-        // $app->get('/modals/account/tos', 'UserFrosting\Sprinkle\Account\Controller\AccountController:getModalAccountTos');
     }
 }
 

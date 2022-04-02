@@ -12,7 +12,7 @@ Encore
     .addEntry('app', './app/assets/main.js')
     .addEntry('page.register', './app/assets/register.js')
     .addEntry('page.sign-in', './app/assets/sign-in.js')
-    // .copyFiles({ from: './app/assets/favicons', to: 'favicons/[path][name].[hash:8].[ext]' })
+    .addEntry('page.forgot-password', './app/assets/forgot-password.js')
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()
