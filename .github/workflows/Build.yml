@@ -27,7 +27,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php_versions }}
-          extensions: mbstring, dom, fileinfo, gd, memcached, redis, pdo_sqlite
+          extensions: mbstring, dom, fileinfo, gd, pdo_sqlite
           coverage: xdebug
           tools: pecl, composer
 
@@ -35,16 +35,14 @@ jobs:
         with:
           node-version: 14
       
-      - name: Setup Redis-server
-        uses: supercharge/redis-github-action@1.1.0
-        with:
-          redis-version: 6
-      
-      - name: Setup Memcached
-        uses: niden/actions-memcached@v7
-            
       - name: Install Dependencies
         run: composer install --prefer-dist --no-progress
+      
+      - name: Npm Install
+        run: npm install
+      
+      - name: Run Webpack
+        run: npm run dev
 
       - name: Execute tests
         run: | 
