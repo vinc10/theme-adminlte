@@ -13,12 +13,14 @@ namespace UserFrosting\Theme\AdminLTE\Routes;
 use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
 use UserFrosting\Routes\RouteDefinitionInterface;
+use UserFrosting\Sprinkle\Account\Authenticate\AuthGuard;
 use UserFrosting\Sprinkle\Account\Authenticate\GuestGuard;
 use UserFrosting\Theme\AdminLTE\Controller\ForgotPasswordPageAction;
 use UserFrosting\Theme\AdminLTE\Controller\LoginPageAction;
 use UserFrosting\Theme\AdminLTE\Controller\RegisterPageAction;
 use UserFrosting\Theme\AdminLTE\Controller\ResendVerificationPageAction;
 use UserFrosting\Theme\AdminLTE\Controller\SetPasswordPageAction;
+use UserFrosting\Theme\AdminLTE\Controller\SettingsPageAction;
 
 class AuthPages implements RouteDefinitionInterface
 {
@@ -30,7 +32,10 @@ class AuthPages implements RouteDefinitionInterface
             $group->get('/forgot-password', ForgotPasswordPageAction::class)->setName('page.forgot-password');
             $group->get('/resend-verification', ResendVerificationPageAction::class)->setName('page.resend-verification');
             $group->get('/set-password/confirm', SetPasswordPageAction::class)->setName('page.set-password.confirm');
-            // $group->get('/settings', 'UserFrosting\Sprinkle\Account\Controller\SettingsPageAction')->setName('page.settings');
         })->add(GuestGuard::class);
+
+        $app->group('/account', function (RouteCollectorProxy $group) {
+            $group->get('/settings', SettingsPageAction::class)->setName('page.settings');
+        })->add(AuthGuard::class);
     }
 }

@@ -12,7 +12,6 @@ namespace UserFrosting\Theme\AdminLTE\Controller;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Exception\HttpNotFoundException;
 use Slim\Views\Twig;
 use UserFrosting\Config\Config;
 use UserFrosting\Fortress\Adapter\JqueryValidationAdapter;
@@ -22,24 +21,33 @@ use UserFrosting\I18n\Translator;
 use UserFrosting\Sprinkle\Core\I18n\SiteLocaleInterface;
 
 /**
- * Render the account registration page for UserFrosting.
+ * Account settings page.
  *
- * This allows new (non-authenticated) users to create a new account for themselves on your website (if enabled).
- * By definition, this is a "public page" (does not require authentication).
+ * Provides a form for users to modify various properties of their account,
+ * such as name, email, locale, etc. Any fields that the user does not have
+ * permission to modify will be automatically disabled. This page requires
+ * authentication.
  *
- * Middleware: GuestGuard
- * Route: /account/register
- * Route Name: page.register
+ * Middleware: AuthGuard
+ * Route: /account/settings
+ * Route Name: page.settings
  * Request type: GET
  */
-class RegisterPageAction
+class SettingsPageAction
 {
     // Page template
-    protected string $template = 'pages/register.html.twig';
+    protected string $template = 'pages/account-settings.html.twig';
 
     // Request schema for client side form validation
-    protected string $schema = 'schema://requests/register.yaml';
+    protected string $accountSchema = 'schema://requests/account-settings.yaml';
+    protected string $profileSchema = 'schema://requests/profile-settings.yaml';
 
+    /**
+     * Inject dependencies.
+     *
+     * @param Twig       $view
+     * @param Translator $translator
+     */
     public function __construct(
         protected Config $config,
         protected SiteLocaleInterface $siteLocale,
@@ -59,6 +67,12 @@ class RegisterPageAction
     {
         $payload = $this->handle($request);
 
+        // Access-controlled page
+        // TODO
+        // if (!$authorizer->checkAccess($currentUser, 'uri_account_settings')) {
+        //     throw new ForbiddenException();
+        // }
+
         return $this->view->render($response, $this->template, $payload);
     }
 
@@ -71,18 +85,8 @@ class RegisterPageAction
      */
     protected function handle(Request $request): array
     {
-        if ($this->config->get('site.registration.enabled') === false) {
-            throw new HttpNotFoundException($request);
-        }
-
-        // Load the request schema
-        $schema = $this->getSchema();
-
-        // Get validator
-        $validatorRegister = new JqueryValidationAdapter($schema, $this->translator);
-
-        // Get locale information
-        $currentLocale = $this->translator->getLocale()->getIdentifier();
+        $validatorAccountSettings = new JqueryValidationAdapter($this->getAccountSchema(), $this->translator);
+        $validatorProfileSettings = new JqueryValidationAdapter($this->getProfileSchema(), $this->translator);
 
         // Hide the locale field if there is only 1 locale available
         $fields = [
@@ -97,15 +101,14 @@ class RegisterPageAction
         }
 
         return [
-            'page' => [
-                'validators' => [
-                    'register' => $validatorRegister->rules('json', false),
-                ],
-            ],
+            'locales' => $locales,
             'fields'  => $fields,
-            'locales' => [
-                'available' => $locales,
-                'current'   => $currentLocale,
+            'page'    => [
+                'validators' => [
+                    'account_settings' => $validatorAccountSettings->rules('json', false),
+                    'profile_settings' => $validatorProfileSettings->rules('json', false),
+                ],
+                'visibility' => '', // TODO : ($authorizer->checkAccess($currentUser, 'update_account_settings') ? '' : 'disabled'),
             ],
         ];
     }
@@ -115,13 +118,25 @@ class RegisterPageAction
      *
      * @return RequestSchemaInterface
      */
-    protected function getSchema(): RequestSchemaInterface
+    protected function getAccountSchema(): RequestSchemaInterface
     {
-        $schema = new RequestSchema($this->schema);
+        $schema = new RequestSchema($this->accountSchema);
         $schema->set('password.validators.length.min', $this->config->get('site.password.length.min'));
         $schema->set('password.validators.length.max', $this->config->get('site.password.length.max'));
         $schema->set('passwordc.validators.length.min', $this->config->get('site.password.length.min'));
         $schema->set('passwordc.validators.length.max', $this->config->get('site.password.length.max'));
+
+        return $schema;
+    }
+
+    /**
+     * Load the request schema.
+     *
+     * @return RequestSchemaInterface
+     */
+    protected function getProfileSchema(): RequestSchemaInterface
+    {
+        $schema = new RequestSchema($this->profileSchema);
 
         return $schema;
     }

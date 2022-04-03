@@ -15,6 +15,7 @@ Encore
     .addEntry('page.forgot-password', './app/assets/forgot-password.js')
     .addEntry('page.resend-verification', './app/assets/resend-verification.js')
     .addEntry('page.set-or-reset-password', './app/assets/set-or-reset-password.js')
+    .addEntry('page.account-settings', './app/assets/account-settings.js')
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()

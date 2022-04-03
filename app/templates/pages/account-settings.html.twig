@@ -41,5 +41,5 @@
     {{ assets.js('js/form-widgets') | raw }}
 
     <!-- Include page-specific JS -->
-    {{ assets.js('js/pages/account-settings') | raw }}
+    {{ encore_entry_script_tags('page.account-settings') }}
 {% endblock %}
