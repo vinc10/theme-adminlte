@@ -17,6 +17,8 @@ use UserFrosting\Sprinkle\Account\Authenticate\GuestGuard;
 use UserFrosting\Theme\AdminLTE\Controller\ForgotPasswordPageAction;
 use UserFrosting\Theme\AdminLTE\Controller\LoginPageAction;
 use UserFrosting\Theme\AdminLTE\Controller\RegisterPageAction;
+use UserFrosting\Theme\AdminLTE\Controller\ResendVerificationPageAction;
+use UserFrosting\Theme\AdminLTE\Controller\SetPasswordPageAction;
 
 class AuthPages implements RouteDefinitionInterface
 {
@@ -26,20 +28,9 @@ class AuthPages implements RouteDefinitionInterface
             $group->get('/sign-in', LoginPageAction::class)->setName('page.login');
             $group->get('/register', RegisterPageAction::class)->setName('page.register');
             $group->get('/forgot-password', ForgotPasswordPageAction::class)->setName('page.forgot-password');
+            $group->get('/resend-verification', ResendVerificationPageAction::class)->setName('page.resend-verification');
+            $group->get('/set-password/confirm', SetPasswordPageAction::class)->setName('page.set-password.confirm');
+            // $group->get('/settings', 'UserFrosting\Sprinkle\Account\Controller\SettingsPageAction')->setName('page.settings');
         })->add(GuestGuard::class);
     }
 }
-
-// TODO : Move to theme repo
-// $this->get('/forgot-password', 'UserFrosting\Sprinkle\Account\Controller\AccountController:pageForgotPassword')
-//    ->setName('forgot-password');
-
-// TODO : Move to theme repo
-// $this->get('/resend-verification', 'UserFrosting\Sprinkle\Account\Controller\AccountController:pageResendVerification');
-
-// TODO : Move to theme repo
-// $this->get('/set-password/confirm', 'UserFrosting\Sprinkle\Account\Controller\AccountController:pageResetPassword');
-
-// TODO : Move to theme repo
-// $this->get('/settings', 'UserFrosting\Sprinkle\Account\Controller\AccountController:pageSettings')
-//    ->add('authGuard');

@@ -12,7 +12,7 @@
 {% block content %}
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{site.uri.public}}">{{site.title}}</a>
+        <a href="{{ urlFor('index') }}">{{site.title}}</a>
     </div>
     <!-- /.login-logo -->
 
@@ -22,7 +22,7 @@
 
         <div class="form-alerts" id="alerts-page"></div>
 
-        <form id="request-verification-email" role="form" action="{{site.uri.public}}/account/resend-verification" method="post" class="r-form">
+        <form id="request-verification-email" role="form" action="{{ urlFor('account.resendVerification') }}" method="post" class="r-form">
             {% include "forms/csrf.html.twig" %}
             <div class="form-group">
                 <label class="sr-only" for="verification-form-email">{{translate("EMAIL")}}</label>
@@ -41,6 +41,6 @@
     </script>
 
     <!-- Include page-specific JS -->
-    {{ assets.js('js/pages/resend-verification') | raw }}
+    {{ encore_entry_script_tags('page.resend-verification') }}
 
 {% endblock %}

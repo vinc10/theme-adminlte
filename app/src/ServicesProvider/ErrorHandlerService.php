@@ -16,6 +16,7 @@ use UserFrosting\ServicesProvider\ServicesProviderInterface;
 use UserFrosting\Sprinkle\Account\Exceptions\AuthExpiredException;
 use UserFrosting\Sprinkle\Account\Exceptions\AuthGuardException;
 use UserFrosting\Sprinkle\Account\Exceptions\LoggedInException;
+use UserFrosting\Sprinkle\Account\Exceptions\PasswordResetInvalidException;
 use UserFrosting\Sprinkle\Core\Error\ExceptionHandlerMiddleware;
 use UserFrosting\Theme\AdminLTE\Error\Handler\LoggedInExceptionHandler;
 use UserFrosting\Theme\AdminLTE\Error\Handler\RedirectToLoginDangerHandler;
@@ -30,6 +31,7 @@ class ErrorHandlerService implements ServicesProviderInterface
                 $middleware->registerHandler(LoggedInException::class, LoggedInExceptionHandler::class);
                 $middleware->registerHandler(AuthGuardException::class, RedirectToLoginInfoHandler::class);
                 $middleware->registerHandler(AuthExpiredException::class, RedirectToLoginDangerHandler::class);
+                $middleware->registerHandler(PasswordResetInvalidException::class, RedirectToLoginDangerHandler::class);
 
                 return $middleware;
             }),

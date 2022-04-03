@@ -13,6 +13,8 @@ Encore
     .addEntry('page.register', './app/assets/register.js')
     .addEntry('page.sign-in', './app/assets/sign-in.js')
     .addEntry('page.forgot-password', './app/assets/forgot-password.js')
+    .addEntry('page.resend-verification', './app/assets/resend-verification.js')
+    .addEntry('page.set-or-reset-password', './app/assets/set-or-reset-password.js')
     .splitEntryChunks()
     .enableSingleRuntimeChunk()
     .cleanupOutputBeforeBuild()

@@ -14,12 +14,14 @@ namespace UserFrosting\Theme\AdminLTE;
 
 use UserFrosting\Event\EventListenerRecipe;
 use UserFrosting\Sprinkle\Account\Account;
+use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterDenyResetPasswordEvent;
 use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLoginEvent;
 use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLogoutEvent;
 use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterVerificationEvent;
 use UserFrosting\Sprinkle\Core\Core;
 use UserFrosting\Sprinkle\SprinkleRecipe;
 use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedToIndex;
+use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedToLogin;
 use UserFrosting\Theme\AdminLTE\Routes\AuthPages;
 use UserFrosting\Theme\AdminLTE\Routes\TosPages;
 use UserFrosting\Theme\AdminLTE\ServicesProvider\ControllerService;
@@ -108,6 +110,9 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
             ],
             UserRedirectedAfterVerificationEvent::class => [
                 UserRedirectedToIndex::class,
+            ],
+            UserRedirectedAfterDenyResetPasswordEvent::class => [
+                UserRedirectedToLogin::class,
             ],
         ];
     }
