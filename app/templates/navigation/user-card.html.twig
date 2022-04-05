@@ -23,9 +23,9 @@
       <li class="user-footer">
           {% block userCard_menu %}
               {# {% if checkAccess('uri_account_settings') %} #}
-                <a href="{{site.uri.public}}/account/settings" class="btn btn-default btn-flat btn-block">{{translate("ACCOUNT.MY")}}</a>
+                <a href="{{ urlFor('page.settings') }}" class="btn btn-default btn-flat btn-block">{{translate("ACCOUNT.MY")}}</a>
               {# {% endif %} #}
-              <a href="{{site.uri.public}}/account/logout" class="btn btn-default btn-flat btn-block">{{translate("LOGOUT")}}</a>
+              <a href="{{ urlFor('account.logout') }}" class="btn btn-default btn-flat btn-block">{{translate("LOGOUT")}}</a>
           {% endblock %}
       </li>
     </ul>

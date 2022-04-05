@@ -6,6 +6,6 @@
 
 {% block heading %}
     <i class="fas fa-warning text-yellow"></i> {{ translate('ACCOUNT.SESSION_COMPROMISED.TEXT', {
-        'url' : site.uri.public ~ '/account/sign-in'
+        'url' : urlFor('page.login')
     }) | raw }}
 {% endblock %}
