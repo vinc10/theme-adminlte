@@ -114,7 +114,7 @@ abstract class AbstractRedirectExceptionHandler extends ExceptionHandler
     }
 
     /**
-     * Determine the route the user was trying to access, and return it as a 
+     * Determine the route the user was trying to access, and return it as a
      * string for query param.
      *
      * @param ServerRequestInterface $request
@@ -135,8 +135,8 @@ abstract class AbstractRedirectExceptionHandler extends ExceptionHandler
 
     /**
      * Return redirect route.
-     * 
-     * @param string $queryParams 
+     *
+     * @param string $queryParams
      *
      * @return string
      */
