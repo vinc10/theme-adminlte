@@ -19,7 +19,7 @@ final class RedirectToLoginInfoHandler extends AbstractRedirectExceptionHandler
 {
     /**
      * Return redirect route.
-     * 
+     *
      * @param string $queryParams
      *
      * @return string
