@@ -52,7 +52,7 @@ class SetPasswordPageActionTest extends AdminLTETestCase
 
         // Assert response status & body
         $this->assertResponseStatus(302, $response);
-        $this->assertSame('/account/sign-in', $response->getHeaderLine('Location'));
+        $this->assertSame('/account/sign-in?redirect=%2Faccount%2Fset-password%2Fconfirm', $response->getHeaderLine('Location'));
 
         // Test message
         /** @var AlertStream */

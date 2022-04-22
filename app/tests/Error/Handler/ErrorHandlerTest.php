@@ -37,7 +37,7 @@ class ErrorHandlerTest extends AdminLTETestCase
 
         // Assert response status & body
         $this->assertResponseStatus(302, $response);
-        $this->assertSame('/account/sign-in', $response->getHeaderLine('Location'));
+        $this->assertSame('/account/sign-in?redirect=%2FAuthGuardException', $response->getHeaderLine('Location'));
 
         // Test message
         /** @var AlertStream */
@@ -69,7 +69,7 @@ class ErrorHandlerTest extends AdminLTETestCase
 
         // Assert response status & body
         $this->assertResponseStatus(302, $response);
-        $this->assertSame('/account/sign-in', $response->getHeaderLine('Location'));
+        $this->assertSame('/account/sign-in?redirect=%2FAuthExpiredException', $response->getHeaderLine('Location'));
 
         // Test message
         /** @var AlertStream */

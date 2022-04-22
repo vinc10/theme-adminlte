@@ -19,10 +19,12 @@ final class LoggedInExceptionHandler extends AbstractRedirectExceptionHandler
 {
     /**
      * Return redirect route.
+     * 
+     * @param string $queryParams
      *
      * @return string
      */
-    protected function determineRoute(): string
+    protected function determineRoute(string $queryParams): string
     {
         return $this->routeParser->urlFor('index');
     }

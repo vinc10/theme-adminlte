@@ -19,12 +19,16 @@ final class RedirectToLoginInfoHandler extends AbstractRedirectExceptionHandler
 {
     /**
      * Return redirect route.
+     * 
+     * @param string $queryParams
      *
      * @return string
      */
-    protected function determineRoute(): string
+    protected function determineRoute(string $queryParams): string
     {
-        return $this->routeParser->urlFor('page.login');
+        return $this->routeParser->urlFor('page.login', [], [
+            'redirect' => $queryParams,
+        ]);
     }
 
     /**

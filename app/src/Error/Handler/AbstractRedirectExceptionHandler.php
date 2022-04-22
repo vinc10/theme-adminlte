@@ -66,7 +66,8 @@ abstract class AbstractRedirectExceptionHandler extends ExceptionHandler
     public function renderResponse(ServerRequestInterface $request, Throwable $exception): ResponseInterface
     {
         $response = parent::renderResponse($request, $exception);
-        $path = $this->determineRoute();
+        $queryParams = $this->determineQueryParams($request);
+        $path = $this->determineRoute($queryParams);
 
         return $response->withHeader('Location', $path);
     }
@@ -113,11 +114,33 @@ abstract class AbstractRedirectExceptionHandler extends ExceptionHandler
     }
 
     /**
-     * Return redirect route.
+     * Determine the route the user was trying to access, and return it as a 
+     * string for query param.
+     *
+     * @param ServerRequestInterface $request
      *
      * @return string
      */
-    abstract protected function determineRoute(): string;
+    protected function determineQueryParams(ServerRequestInterface $request): string
+    {
+        $uri = $request->getUri();
+        $path = $uri->getPath();
+        $query = $uri->getQuery();
+        $fragment = $uri->getFragment();
+
+        return $path
+            . ($query !== '' ? '?' . $query : '')
+            . ($fragment !== '' ? '#' . $fragment : '');
+    }
+
+    /**
+     * Return redirect route.
+     * 
+     * @param string $queryParams 
+     *
+     * @return string
+     */
+    abstract protected function determineRoute(string $queryParams): string;
 
     /**
      * Return alert type. Null for no alerts.
