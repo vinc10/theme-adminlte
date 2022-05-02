@@ -19,7 +19,7 @@ final class LoggedInExceptionHandler extends AbstractRedirectExceptionHandler
 {
     /**
      * Return redirect route.
-     * 
+     *
      * @param string $queryParams
      *
      * @return string
