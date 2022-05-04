@@ -22,9 +22,9 @@
       <!-- Menu Footer-->
       <li class="user-footer">
           {% block userCard_menu %}
-              {# {% if checkAccess('uri_account_settings') %} #}
+              {% if checkAccess('uri_account_settings') %}
                 <a href="{{ urlFor('page.settings') }}" class="btn btn-default btn-flat btn-block">{{translate("ACCOUNT.MY")}}</a>
-              {# {% endif %} #}
+              {% endif %}
               <a href="{{ urlFor('account.logout') }}" class="btn btn-default btn-flat btn-block">{{translate("LOGOUT")}}</a>
           {% endblock %}
       </li>

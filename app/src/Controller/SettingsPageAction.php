@@ -18,6 +18,9 @@ use UserFrosting\Fortress\Adapter\JqueryValidationAdapter;
 use UserFrosting\Fortress\RequestSchema;
 use UserFrosting\Fortress\RequestSchema\RequestSchemaInterface;
 use UserFrosting\I18n\Translator;
+use UserFrosting\Sprinkle\Account\Authenticate\Authenticator;
+use UserFrosting\Sprinkle\Account\Authorize\AuthorizationManager;
+use UserFrosting\Sprinkle\Account\Exceptions\ForbiddenException;
 use UserFrosting\Sprinkle\Core\I18n\SiteLocaleInterface;
 
 /**
@@ -49,6 +52,8 @@ class SettingsPageAction
      * @param Translator $translator
      */
     public function __construct(
+        protected Authenticator $authenticator,
+        protected AuthorizationManager $authorizer,
         protected Config $config,
         protected SiteLocaleInterface $siteLocale,
         protected Translator $translator,
@@ -65,15 +70,23 @@ class SettingsPageAction
      */
     public function __invoke(Request $request, Response $response): Response
     {
+        $this->validateAccess();
         $payload = $this->handle($request);
 
-        // Access-controlled page
-        // TODO
-        // if (!$authorizer->checkAccess($currentUser, 'uri_account_settings')) {
-        //     throw new ForbiddenException();
-        // }
-
         return $this->view->render($response, $this->template, $payload);
+    }
+
+    /**
+     * Validate access to the page.
+     *
+     * @throws ForbiddenException
+     */
+    protected function validateAccess(): void
+    {
+        // Access-controlled page
+        if (!$this->authorizer->checkAccess($this->authenticator->user(), 'uri_account_settings')) {
+            throw new ForbiddenException();
+        }
     }
 
     /**
@@ -108,7 +121,7 @@ class SettingsPageAction
                     'account_settings' => $validatorAccountSettings->rules('json', false),
                     'profile_settings' => $validatorProfileSettings->rules('json', false),
                 ],
-                'visibility' => '', // TODO : ($authorizer->checkAccess($currentUser, 'update_account_settings') ? '' : 'disabled'),
+                'visibility' => ($this->authorizer->checkAccess($this->authenticator->user(), 'update_account_settings') ? '' : 'disabled'),
             ],
         ];
     }
