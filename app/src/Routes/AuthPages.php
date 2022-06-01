@@ -31,7 +31,7 @@ class AuthPages implements RouteDefinitionInterface
             $group->get('/register', RegisterPageAction::class)->setName('page.register');
             $group->get('/forgot-password', ForgotPasswordPageAction::class)->setName('page.forgot-password');
             $group->get('/resend-verification', ResendVerificationPageAction::class)->setName('page.resend-verification');
-            $group->get('/set-password/confirm', SetPasswordPageAction::class)->setName('page.set-password.confirm');
+            $group->get('/set-password/confirm', SetPasswordPageAction::class)->setName('account.setPassword.confirm');
         })->add(GuestGuard::class);
 
         $app->group('/account', function (RouteCollectorProxy $group) {

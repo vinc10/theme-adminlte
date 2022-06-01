@@ -28,7 +28,7 @@ use UserFrosting\Sprinkle\Account\Repository\PasswordResetRepository;
  *
  * Middleware: GuestGuard
  * Route: /account/set-password/confirm
- * Route Name: page.set-password.confirm
+ * Route Name: account.setPassword.confirm
  * Request type: GET
  */
 class SetPasswordPageAction
