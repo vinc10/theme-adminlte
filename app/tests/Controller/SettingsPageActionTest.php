@@ -52,8 +52,7 @@ class SettingsPageActionTest extends AdminLTETestCase
 
         /** @var AuthorizationManager */
         $authorizer = Mockery::mock(AuthorizationManager::class)
-            ->shouldReceive('checkAccess')->with($user, 'uri_account_settings', [])->once()->andReturn(true) // From the template !
-            ->shouldReceive('checkAccess')->with($user, 'uri_account_settings')->once()->andReturn(true)
+            ->shouldReceive('checkAccess')->with($user, 'uri_account_settings', Mockery::andAnyOtherArgs())->times(2)->andReturn(true) // Once from the template !
             ->shouldReceive('checkAccess')->with($user, 'update_account_settings')->once()->andReturn(true)
             ->getMock();
         $this->ci->set(AuthorizationManager::class, $authorizer);
