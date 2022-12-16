@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7fc06ed969a3bbab10cc151a29d3d055",
+    "content-hash": "9c28a5bf5db99ff396177d284344dbd4",
     "packages": [
         {
             "name": "birke/rememberme",
@@ -9414,15 +9414,12 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "userfrosting/sprinkle-core": 15,
-        "userfrosting/sprinkle-account": 15
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

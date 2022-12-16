@@ -22,8 +22,8 @@
     ],
     "require": {
         "php": "^8.0",
-        "userfrosting/sprinkle-core": "^5.0.0@alpha",
-        "userfrosting/sprinkle-account": "^5.0.0@alpha"
+        "userfrosting/sprinkle-core": "^5.0",
+        "userfrosting/sprinkle-account": "^5.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0",
@@ -37,6 +37,8 @@
         "mockery/mockery": "^1.2",
         "fakerphp/faker": "^1.17"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "UserFrosting\\Theme\\AdminLTE\\": "app/src/"
@@ -47,7 +49,5 @@
             "UserFrosting\\Develop\\AdminLTE\\": "develop/",
             "UserFrosting\\Theme\\AdminLTE\\Tests\\": "app/tests/"
         }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
