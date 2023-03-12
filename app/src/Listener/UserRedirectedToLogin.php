@@ -20,6 +20,11 @@ use UserFrosting\Sprinkle\Core\Event\Contract\RedirectingEventInterface;
  */
 class UserRedirectedToLogin
 {
+    /**
+     * Inject dependencies.
+     *
+     * @param RouteParserInterface $routeParser
+     */
     public function __construct(
         protected RouteParserInterface $routeParser,
     ) {

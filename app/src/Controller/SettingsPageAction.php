@@ -48,8 +48,12 @@ class SettingsPageAction
     /**
      * Inject dependencies.
      *
-     * @param Twig       $view
-     * @param Translator $translator
+     * @param Authenticator        $authenticator
+     * @param AuthorizationManager $authorizer
+     * @param Config               $config
+     * @param SiteLocaleInterface  $siteLocale
+     * @param Translator           $translator
+     * @param Twig                 $view
      */
     public function __construct(
         protected Authenticator $authenticator,

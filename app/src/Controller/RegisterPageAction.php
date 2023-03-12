@@ -40,6 +40,14 @@ class RegisterPageAction
     // Request schema for client side form validation
     protected string $schema = 'schema://requests/register.yaml';
 
+    /**
+     * Inject dependencies.
+     *
+     * @param Config              $config
+     * @param SiteLocaleInterface $siteLocale
+     * @param Translator          $translator
+     * @param Twig                $view
+     */
     public function __construct(
         protected Config $config,
         protected SiteLocaleInterface $siteLocale,

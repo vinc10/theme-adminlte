@@ -27,7 +27,9 @@ use UserFrosting\Theme\AdminLTE\Routes\TosPages;
 use UserFrosting\Theme\AdminLTE\ServicesProvider\ControllerService;
 use UserFrosting\Theme\AdminLTE\ServicesProvider\ErrorHandlerService;
 
-class AdminLTE implements SprinkleRecipe, EventListenerRecipe
+class AdminLTE implements
+    SprinkleRecipe,
+    EventListenerRecipe
 {
     /**
      * {@inheritdoc}
@@ -43,16 +45,6 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
     public function getPath(): string
     {
         return __DIR__ . '/../';
-    }
-
-    /**
-     * {@inheritdoc}
-     *
-     * @codeCoverageIgnore
-     */
-    public function getBakeryCommands(): array
-    {
-        return [];
     }
 
     /**
@@ -86,14 +78,6 @@ class AdminLTE implements SprinkleRecipe, EventListenerRecipe
             ControllerService::class,
             ErrorHandlerService::class,
         ];
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getMiddlewares(): array
-    {
-        return [];
     }
 
     /**

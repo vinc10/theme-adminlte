@@ -42,10 +42,15 @@ abstract class AbstractRedirectExceptionHandler extends ExceptionHandler
     ];
 
     /**
-     * @param ContainerInterface $ci
-     * @param ResponseFactory    $responseFactory
-     * @param Config             $config
-     * @param Translator         $translator
+     * Inject dependencies.
+     *
+     * @param ContainerInterface   $ci
+     * @param ResponseFactory      $responseFactory
+     * @param Config               $config
+     * @param Translator           $translator
+     * @param ErrorLogger          $logger
+     * @param AlertStream          $alert
+     * @param RouteParserInterface $routeParser
      */
     public function __construct(
         protected ContainerInterface $ci,

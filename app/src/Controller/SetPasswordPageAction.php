@@ -42,8 +42,10 @@ class SetPasswordPageAction
     /**
      * Inject dependencies.
      *
-     * @param Twig       $view
-     * @param Translator $translator
+     * @param Twig                    $view
+     * @param Translator              $translator
+     * @param Config                  $config
+     * @param PasswordResetRepository $passwordResetRepository
      */
     public function __construct(
         protected Twig $view,
