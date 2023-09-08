@@ -5,7 +5,6 @@
     "description": "Admin LTE Theme for UserFrosting 5",
     "main": "app/assets/main.js",
     "dependencies": {
-        "@babel/core": "^7.22.15",
         "@fortawesome/fontawesome-free": "~5.15.2",
         "admin-lte": "^2.4",
         "bootstrap-sass": "^3.4.1",
