@@ -40,7 +40,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
       
       - name: Npm Install
-        run: npm ci
+        run: npm ci --include=dev
       
       - name: Run Webpack
         run: npm run dev
