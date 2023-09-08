@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         php_versions: ['8.0', '8.1', '8.2']
-        node_versions: [14, 18, 20]
+        node_versions: [18, 20]
 
     runs-on: ubuntu-latest
     name: PHPUnit - PHP ${{ matrix.php_versions }} - Node ${{ matrix.node_versions }}
@@ -40,10 +40,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
       
       - name: Npm Install
-        run: npm ci --include=dev
-      
-      - name: Npm Debug
-        run: npm ls --all --depth 1
+        run: npm ci
         
       - name: Run Webpack
         run: npm run dev
