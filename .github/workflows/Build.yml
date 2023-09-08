@@ -42,6 +42,9 @@ jobs:
       - name: Npm Install
         run: npm ci --include=dev
       
+      - name: Npm Debug
+        run: npm ls --all --depth 1
+        
       - name: Run Webpack
         run: npm run dev
 
