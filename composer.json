@@ -2,7 +2,7 @@
     "name": "userfrosting/theme-adminlte",
     "type": "userfrosting-theme",
     "description": "AdminLTE theme for UserFrosting 5",
-    "keywords": ["php user management", "AdminLTE", "webpack", "UserFrosting"],
+    "keywords": ["php user management", "AdminLTE", "webpack", "UserFrosting", "theme", "userfrosting-sprinkle", "userfrosting-theme"],
     "homepage": "https://github.com/userfrosting/UserFrosting",
     "license" : "MIT",
     "authors" : [

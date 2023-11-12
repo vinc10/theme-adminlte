@@ -23,9 +23,9 @@ return [
         'VERIFY'       => 'Verify the captcha',
     ],
 
-    'CSRF_MISSING' => 'Missing CSRF token.  Try refreshing the page and then submitting again?',
+    'CSRF_MISSING' => 'Missing CSRF token. Try refreshing the page and then submitting again?',
 
-    'DB_INVALID'    => 'Cannot connect to the database.  If you are an administrator, please check your error log.',
+    'DB_INVALID'    => 'Cannot connect to the database. If you are an administrator, please check your error log.',
     'DESCRIPTION'   => 'Description',
     'DOWNLOAD'      => [
         '@TRANSLATION' => 'Download',
