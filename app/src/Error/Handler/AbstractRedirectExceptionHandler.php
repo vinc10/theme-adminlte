@@ -23,7 +23,6 @@ use UserFrosting\Config\Config;
 use UserFrosting\I18n\Translator;
 use UserFrosting\Sprinkle\Core\Error\Handler\ExceptionHandler;
 use UserFrosting\Sprinkle\Core\Error\Renderer\JsonRenderer;
-use UserFrosting\Sprinkle\Core\Log\ErrorLogger;
 use UserFrosting\Sprinkle\Core\Log\ErrorLoggerInterface;
 use UserFrosting\Sprinkle\Core\Util\Message\Message;
 use UserFrosting\Theme\AdminLTE\Error\Renderer\EmptyRenderer;
@@ -49,7 +48,7 @@ abstract class AbstractRedirectExceptionHandler extends ExceptionHandler
      * @param ResponseFactory      $responseFactory
      * @param Config               $config
      * @param Translator           $translator
-     * @param ErrorLogger          $logger
+     * @param ErrorLoggerInterface $logger
      * @param AlertStream          $alert
      * @param RouteParserInterface $routeParser
      */
@@ -89,7 +88,7 @@ abstract class AbstractRedirectExceptionHandler extends ExceptionHandler
         // Add Alert if required
         $type = $this->determineAlertType();
         if ($type !== null) {
-            $this->alert->addMessageTranslated($type, $message->title);
+            $this->alert->addMessage($type, $message->title);
         }
 
         return $message;
