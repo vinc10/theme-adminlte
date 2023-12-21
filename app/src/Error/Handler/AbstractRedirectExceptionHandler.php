@@ -24,6 +24,7 @@ use UserFrosting\I18n\Translator;
 use UserFrosting\Sprinkle\Core\Error\Handler\ExceptionHandler;
 use UserFrosting\Sprinkle\Core\Error\Renderer\JsonRenderer;
 use UserFrosting\Sprinkle\Core\Log\ErrorLogger;
+use UserFrosting\Sprinkle\Core\Log\ErrorLoggerInterface;
 use UserFrosting\Sprinkle\Core\Util\Message\Message;
 use UserFrosting\Theme\AdminLTE\Error\Renderer\EmptyRenderer;
 
@@ -57,7 +58,7 @@ abstract class AbstractRedirectExceptionHandler extends ExceptionHandler
         protected ResponseFactory $responseFactory,
         protected Config $config,
         protected Translator $translator,
-        protected ErrorLogger $logger,
+        protected ErrorLoggerInterface $logger,
         protected AlertStream $alert,
         protected RouteParserInterface $routeParser,
     ) {
