@@ -101,13 +101,13 @@ class SettingsPageAction
      */
     protected function handle(Request $request): array
     {
-        // Hide the locale field if there is only 1 locale available
         $fields = [
             'hidden'   => [],
             'disabled' => [],
         ];
 
         // Get a list of all locales
+        // Hide the locale field if there is only 1 locale available
         $locales = $this->siteLocale->getAvailableOptions();
         if (count($locales) <= 1) {
             $fields['hidden'][] = 'locale';
