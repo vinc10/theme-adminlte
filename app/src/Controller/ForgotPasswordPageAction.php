@@ -13,9 +13,8 @@ namespace UserFrosting\Theme\AdminLTE\Controller;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
-use UserFrosting\Fortress\Adapter\JqueryValidationAdapter;
+use UserFrosting\Fortress\Adapter\JqueryValidationArrayAdapter;
 use UserFrosting\Fortress\RequestSchema;
-use UserFrosting\I18n\Translator;
 
 /**
  * Render the "forgot password" page.
@@ -40,12 +39,12 @@ class ForgotPasswordPageAction
     /**
      * Inject dependencies.
      *
-     * @param Twig       $view
-     * @param Translator $translator
+     * @param Twig                         $view
+     * @param JqueryValidationArrayAdapter $validator
      */
     public function __construct(
         protected Twig $view,
-        protected Translator $translator,
+        protected JqueryValidationArrayAdapter $validator,
     ) {
     }
 
@@ -73,12 +72,11 @@ class ForgotPasswordPageAction
     protected function handle(Request $request): array
     {
         $schema = new RequestSchema($this->schema);
-        $validatorLogin = new JqueryValidationAdapter($schema, $this->translator);
 
         return [
             'page' => [
                 'validators' => [
-                    'forgot_password' => $validatorLogin->rules('json', false),
+                    'forgot_password' => $this->validator->rules($schema),
                 ],
             ],
         ];

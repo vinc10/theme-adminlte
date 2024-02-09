@@ -15,7 +15,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Views\Twig;
 use UserFrosting\Config\Config;
-use UserFrosting\Fortress\Adapter\JqueryValidationAdapter;
+use UserFrosting\Fortress\Adapter\JqueryValidationArrayAdapter;
 use UserFrosting\Fortress\RequestSchema;
 use UserFrosting\Fortress\RequestSchema\RequestSchemaInterface;
 use UserFrosting\I18n\Translator;
@@ -53,6 +53,7 @@ class RegisterPageAction
         protected SiteLocaleInterface $siteLocale,
         protected Translator $translator,
         protected Twig $view,
+        protected JqueryValidationArrayAdapter $validator,
     ) {
     }
 
@@ -86,9 +87,6 @@ class RegisterPageAction
         // Load the request schema
         $schema = $this->getSchema();
 
-        // Get validator
-        $validatorRegister = new JqueryValidationAdapter($schema, $this->translator);
-
         // Get locale information
         $currentLocale = $this->translator->getLocale()->getIdentifier();
 
@@ -107,7 +105,7 @@ class RegisterPageAction
         return [
             'page' => [
                 'validators' => [
-                    'register' => $validatorRegister->rules('json', false),
+                    'register' => $this->validator->rules($schema),
                 ],
             ],
             'fields'  => $fields,

@@ -14,10 +14,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 use UserFrosting\Config\Config;
-use UserFrosting\Fortress\Adapter\JqueryValidationAdapter;
+use UserFrosting\Fortress\Adapter\JqueryValidationArrayAdapter;
 use UserFrosting\Fortress\RequestSchema;
 use UserFrosting\Fortress\RequestSchema\RequestSchemaInterface;
-use UserFrosting\I18n\Translator;
 use UserFrosting\Sprinkle\Account\Exceptions\PasswordResetInvalidException;
 use UserFrosting\Sprinkle\Account\Repository\PasswordResetRepository;
 
@@ -42,16 +41,16 @@ class SetPasswordPageAction
     /**
      * Inject dependencies.
      *
-     * @param Twig                    $view
-     * @param Translator              $translator
-     * @param Config                  $config
-     * @param PasswordResetRepository $passwordResetRepository
+     * @param Twig                         $view
+     * @param Config                       $config
+     * @param PasswordResetRepository      $passwordResetRepository
+     * @param JqueryValidationArrayAdapter $validator
      */
     public function __construct(
         protected Twig $view,
-        protected Translator $translator,
         protected Config $config,
         protected PasswordResetRepository $passwordResetRepository,
+        protected JqueryValidationArrayAdapter $validator,
     ) {
     }
 
@@ -80,7 +79,6 @@ class SetPasswordPageAction
     {
         $params = $request->getQueryParams();
         $schema = $this->getSchema();
-        $validatorLogin = new JqueryValidationAdapter($schema, $this->translator);
 
         // Check validity of token.
         $token = $params['token'] ?? '';
@@ -91,7 +89,7 @@ class SetPasswordPageAction
         return [
             'page' => [
                 'validators' => [
-                    'set_password' => $validatorLogin->rules('json', false),
+                    'set_password' => $this->validator->rules($schema),
                 ],
             ],
             'token' => $token,

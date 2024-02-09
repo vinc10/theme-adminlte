@@ -14,10 +14,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
 use UserFrosting\Config\Config;
-use UserFrosting\Fortress\Adapter\JqueryValidationAdapter;
+use UserFrosting\Fortress\Adapter\JqueryValidationArrayAdapter;
 use UserFrosting\Fortress\RequestSchema;
 use UserFrosting\Fortress\RequestSchema\RequestSchemaInterface;
-use UserFrosting\I18n\Translator;
 use UserFrosting\Sprinkle\Account\Authenticate\Authenticator;
 use UserFrosting\Sprinkle\Account\Authorize\AuthorizationManager;
 use UserFrosting\Sprinkle\Account\Exceptions\ForbiddenException;
@@ -48,19 +47,19 @@ class SettingsPageAction
     /**
      * Inject dependencies.
      *
-     * @param Authenticator        $authenticator
-     * @param AuthorizationManager $authorizer
-     * @param Config               $config
-     * @param SiteLocaleInterface  $siteLocale
-     * @param Translator           $translator
-     * @param Twig                 $view
+     * @param Authenticator                $authenticator
+     * @param AuthorizationManager         $authorizer
+     * @param Config                       $config
+     * @param SiteLocaleInterface          $siteLocale
+     * @param JqueryValidationArrayAdapter $validator
+     * @param Twig                         $view
      */
     public function __construct(
         protected Authenticator $authenticator,
         protected AuthorizationManager $authorizer,
         protected Config $config,
         protected SiteLocaleInterface $siteLocale,
-        protected Translator $translator,
+        protected JqueryValidationArrayAdapter $validator,
         protected Twig $view,
     ) {
     }
@@ -102,9 +101,6 @@ class SettingsPageAction
      */
     protected function handle(Request $request): array
     {
-        $validatorAccountSettings = new JqueryValidationAdapter($this->getAccountSchema(), $this->translator);
-        $validatorProfileSettings = new JqueryValidationAdapter($this->getProfileSchema(), $this->translator);
-
         // Hide the locale field if there is only 1 locale available
         $fields = [
             'hidden'   => [],
@@ -122,8 +118,8 @@ class SettingsPageAction
             'fields'  => $fields,
             'page'    => [
                 'validators' => [
-                    'account_settings' => $validatorAccountSettings->rules('json', false),
-                    'profile_settings' => $validatorProfileSettings->rules('json', false),
+                    'account_settings' => $this->validator->rules($this->getAccountSchema()),
+                    'profile_settings' => $this->validator->rules($this->getProfileSchema()),
                 ],
                 'visibility' => ($this->authorizer->checkAccess($this->authenticator->user(), 'update_account_settings') ? '' : 'disabled'),
             ],

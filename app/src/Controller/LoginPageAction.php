@@ -13,9 +13,8 @@ namespace UserFrosting\Theme\AdminLTE\Controller;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\Twig;
-use UserFrosting\Fortress\Adapter\JqueryValidationAdapter;
+use UserFrosting\Fortress\Adapter\JqueryValidationArrayAdapter;
 use UserFrosting\Fortress\RequestSchema;
-use UserFrosting\I18n\Translator;
 
 /**
  * Render the account sign-in page for UserFrosting.
@@ -39,12 +38,12 @@ class LoginPageAction
     /**
      * Inject dependencies.
      *
-     * @param Twig       $view
-     * @param Translator $translator
+     * @param Twig                         $view
+     * @param JqueryValidationArrayAdapter $validator
      */
     public function __construct(
         protected Twig $view,
-        protected Translator $translator,
+        protected JqueryValidationArrayAdapter $validator,
     ) {
     }
 
@@ -72,12 +71,11 @@ class LoginPageAction
     protected function handle(Request $request): array
     {
         $schema = new RequestSchema($this->schema);
-        $validatorLogin = new JqueryValidationAdapter($schema, $this->translator);
 
         return [
             'page' => [
                 'validators' => [
-                    'login'    => $validatorLogin->rules('json', false),
+                    'login'    => $this->validator->rules($schema),
                 ],
             ],
         ];
