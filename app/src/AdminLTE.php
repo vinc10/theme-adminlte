@@ -19,7 +19,6 @@ use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLoginEvent;
 use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterLogoutEvent;
 use UserFrosting\Sprinkle\Account\Event\UserRedirectedAfterVerificationEvent;
 use UserFrosting\Sprinkle\Core\Core;
-use UserFrosting\Sprinkle\Core\Sprinkle\Recipe\ComposerRecipe;
 use UserFrosting\Sprinkle\SprinkleRecipe;
 use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedToIndex;
 use UserFrosting\Theme\AdminLTE\Listener\UserRedirectedToLogin;
@@ -30,7 +29,6 @@ use UserFrosting\Theme\AdminLTE\ServicesProvider\ErrorHandlerService;
 
 class AdminLTE implements
     SprinkleRecipe,
-    ComposerRecipe,
     EventListenerRecipe
 {
     /**
@@ -47,14 +45,6 @@ class AdminLTE implements
     public function getPath(): string
     {
         return __DIR__ . '/../';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getComposerPackage(): string
-    {
-        return 'userfrosting/theme-adminlte';
     }
 
     /**
