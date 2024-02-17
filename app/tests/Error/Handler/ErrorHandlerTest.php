@@ -14,12 +14,11 @@ namespace UserFrosting\Theme\AdminLTE\Tests\Error\Handler;
 
 use Slim\App as SlimApp;
 use UserFrosting\Alert\AlertStream;
-use UserFrosting\Develop\AdminLTE\App;
-use UserFrosting\Develop\AdminLTE\Routes;
 use UserFrosting\Routes\RouteDefinitionInterface;
 use UserFrosting\Sprinkle\Account\Exceptions\AuthExpiredException;
 use UserFrosting\Sprinkle\Account\Exceptions\AuthGuardException;
 use UserFrosting\Sprinkle\Account\Exceptions\LoggedInException;
+use UserFrosting\Theme\AdminLTE\AdminLTE;
 use UserFrosting\Theme\AdminLTE\Tests\AdminLTETestCase;
 
 /**
@@ -142,12 +141,12 @@ class TestRoutes implements RouteDefinitionInterface
     }
 }
 
-class TestSprinkle extends App
+class TestSprinkle extends AdminLTE
 {
     public function getRoutes(): array
     {
-        return [
-            TestRoutes::class,
-        ];
+        $routes = parent::getRoutes();
+
+        return array_merge([TestRoutes::class], $routes);
     }
 }

@@ -10,13 +10,13 @@
 
 namespace UserFrosting\Theme\AdminLTE\Tests;
 
-use UserFrosting\Develop\AdminLTE\App;
 use UserFrosting\Testing\TestCase;
+use UserFrosting\Theme\AdminLTE\AdminLTE;
 
 /**
  * Test case with App as main sprinkle
  */
 class AdminLTETestCase extends TestCase
 {
-    protected string $mainSprinkle = App::class;
+    protected string $mainSprinkle = AdminLTE::class;
 }
