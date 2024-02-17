@@ -22,7 +22,7 @@
                         {% if description %}<p>{{ description }}</p>{% endif %}
                   </div>
                   <p class="lead">
-                    <a href="{{ urlFor('index') }}">{{ translate('ERROR.RETURN') }}</a>
+                    <a href="{{ urlFor('index', [], [], '/') }}">{{ translate('ERROR.RETURN') }}</a>
                   </p>
               {% endblock %}
             </div>

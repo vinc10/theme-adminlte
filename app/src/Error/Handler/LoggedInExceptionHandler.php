@@ -26,7 +26,7 @@ final class LoggedInExceptionHandler extends AbstractRedirectExceptionHandler
      */
     protected function determineRoute(string $queryParams): string
     {
-        return $this->routeParser->urlFor('index');
+        return $this->routeParser->urlFor('index', fallbackRoute: '/');
     }
 
     /**

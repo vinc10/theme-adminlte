@@ -148,7 +148,6 @@ class TestSprinkle extends App
     {
         return [
             TestRoutes::class,
-            Routes::class,
         ];
     }
 }

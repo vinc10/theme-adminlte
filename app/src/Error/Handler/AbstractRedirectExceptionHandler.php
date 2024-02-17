@@ -15,7 +15,6 @@ namespace UserFrosting\Theme\AdminLTE\Error\Handler;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Slim\Interfaces\RouteParserInterface;
 use Slim\Psr7\Factory\ResponseFactory;
 use Throwable;
 use UserFrosting\Alert\AlertStream;
@@ -25,6 +24,7 @@ use UserFrosting\Sprinkle\Core\Error\Handler\ExceptionHandler;
 use UserFrosting\Sprinkle\Core\Error\Renderer\JsonRenderer;
 use UserFrosting\Sprinkle\Core\Log\ErrorLoggerInterface;
 use UserFrosting\Sprinkle\Core\Util\Message\Message;
+use UserFrosting\Sprinkle\Core\Util\RouteParserInterface;
 use UserFrosting\Theme\AdminLTE\Error\Renderer\EmptyRenderer;
 
 /**

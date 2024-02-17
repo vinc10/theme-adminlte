@@ -12,11 +12,11 @@ declare(strict_types=1);
 
 namespace UserFrosting\Theme\AdminLTE\Listener;
 
-use Slim\Interfaces\RouteParserInterface;
 use UserFrosting\Sprinkle\Core\Event\Contract\RedirectingEventInterface;
+use UserFrosting\Sprinkle\Core\Util\RouteParserInterface;
 
 /**
- * Set redirect to index.
+ * Set redirect to login.
  */
 class UserRedirectedToLogin
 {
@@ -32,7 +32,7 @@ class UserRedirectedToLogin
 
     public function __invoke(RedirectingEventInterface $event): void
     {
-        $path = $this->routeParser->urlFor('page.login');
+        $path = $this->routeParser->urlFor('page.login', fallbackRoute: '/login');
         $event->setRedirect($path);
     }
 }

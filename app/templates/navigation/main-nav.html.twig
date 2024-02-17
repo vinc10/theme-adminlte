@@ -1,7 +1,7 @@
 <nav class="navbar navbar-static-top">
   <div class="container">
     <div class="navbar-header">
-      {% block navbar_logo %}<a href="{{ urlFor('index') }}" class="navbar-brand">{{site.title}}</a>{% endblock %}
+      {% block navbar_logo %}<a href="{{ urlFor('index', [], [], '/') }}" class="navbar-brand">{{site.title}}</a>{% endblock %}
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
         <i class="fas fa-bars"></i>
       </button>

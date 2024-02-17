@@ -3,5 +3,5 @@
       {{ translate("BUILT_WITH_UF") | raw }}
       {% block footer_content %}{% include "content/footer-nav.html.twig" %}{% endblock %}
     </div>
-    &copy; <a href="{{ urlFor('index') }}">{{site.title}}</a>, {{ "now"|date("Y") }}. <span class="hidden-xs">{{ translate("ADMINLTE_THEME_BY") | raw }}.</span>
+    &copy; <a href="{{ urlFor('index', [], [], '/') }}">{{site.title}}</a>, {{ "now"|date("Y") }}. <span class="hidden-xs">{{ translate("ADMINLTE_THEME_BY") | raw }}.</span>
 </footer>
