@@ -10,8 +10,6 @@
 
 /**
  * Entry point for the /public site.
- *
- * @author Alex Weissman (https://alexanderweissman.com)
  */
 
 // First off, we'll grab the Composer dependencies
@@ -23,8 +21,8 @@ if (PHP_SAPI == 'cli-server') {
     $_SERVER['SCRIPT_NAME'] = '/index.php';
 }
 
-use UserFrosting\Develop\AdminLTE\App;
+use UserFrosting\Theme\AdminLTE\AdminLTE;
 use UserFrosting\UserFrosting;
 
-$uf = new UserFrosting(App::class);
+$uf = new UserFrosting(AdminLTE::class);
 $uf->run();
