@@ -6,17 +6,17 @@
  *
  * So we have to do add add some additional styles:
  */
-.sidebar-menu>li>a>.far,
-.sidebar-menu>li>a>.fas,
-.sidebar-menu>li>a>.fal,
-.sidebar-menu>li>a>.fab {
+.sidebar-menu>li>a>.fa-regular,
+.sidebar-menu>li>a>.fa-solid,
+.sidebar-menu>li>a>.fa-light,
+.sidebar-menu>li>a>.fa-brands {
     width: 20px;
 }
 
-.sidebar-menu .treeview-menu>li>a>.far,
-.sidebar-menu .treeview-menu>li>a>.fas,
-.sidebar-menu .treeview-menu>li>a>.fal,
-.sidebar-menu .treeview-menu>li>a>.fab {
+.sidebar-menu .treeview-menu>li>a>.fa-regular,
+.sidebar-menu .treeview-menu>li>a>.fa-solid,
+.sidebar-menu .treeview-menu>li>a>.fa-light,
+.sidebar-menu .treeview-menu>li>a>.fa-brands {
     width: 20px;
 }
 
@@ -34,10 +34,10 @@
     font-size: 110%;
 }
 
-.timeline > li > .far,
-.timeline > li > .fas,
-.timeline > li > .fal,
-.timeline > li > .fab {
+.timeline > li > .fa-regular,
+.timeline > li > .fa-solid,
+.timeline > li > .fa-light,
+.timeline > li > .fa-brands {
     width: 30px;
     height: 30px;
     font-size: 15px;

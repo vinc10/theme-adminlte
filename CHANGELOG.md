@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Drop PHP 8.1 support, add PHP 8.3 support
 - Update to Laravel 10
 - Update to PHPUnit 10
+- Update to FontAwesome 6 (See [what's changed](https://fontawesome.com/docs/web/setup/upgrade/whats-changed))
 
 ## 5.0.0
 - Initial version

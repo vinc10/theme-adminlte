@@ -6,7 +6,7 @@
 
 {% block headline %}<h2 class="headline text-yellow">{{ status }}</h2>{% endblock %}
 
-{% block heading %}<i class="fas {{icon}} text-yellow"></i> {{ translate('ERROR.' ~ status ~ '.TITLE') }}{% endblock %}
+{% block heading %}<i class="fa-solid {{icon}} text-yellow"></i> {{ translate('ERROR.' ~ status ~ '.TITLE') }}{% endblock %}
 
 {% block content %}
     <p>{{ translate('ERROR.' ~ status ~ '.DESCRIPTION') }}</p>
