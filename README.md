@@ -1,4 +1,4 @@
-# UserFrosting AdminLTE Theme for UserFrosting 5.1
+# AdminLTE Theme for UserFrosting 5.1
 
 [![Version](https://img.shields.io/github/v/release/userfrosting/theme-adminlte?sort=semver)](https://github.com/userfrosting/theme-adminlte/releases)
 ![PHP Version](https://img.shields.io/badge/php-%5E8.1-brightgreen)
