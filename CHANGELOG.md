@@ -8,7 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Drop PHP 8.1 support, add PHP 8.3 support
 - Update to Laravel 10
 - Update to PHPUnit 10
-- Update to FontAwesome 6 (See [what's changed](https://fontawesome.com/docs/web/setup/upgrade/whats-changed))
+- Update to FontAwesome 6 (See [what's changed in FA6](https://fontawesome.com/docs/web/setup/upgrade/whats-changed))
+- Add fallback routes when 'index' is not defined (Fix [#1244](https://github.com/userfrosting/UserFrosting/issues/1244))
 
 ## 5.0.0
 - Initial version
