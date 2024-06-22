@@ -1,6 +1,7 @@
 # AdminLTE Theme for UserFrosting 5.1
 
 [![Version](https://img.shields.io/github/v/release/userfrosting/theme-adminlte?sort=semver)](https://github.com/userfrosting/theme-adminlte/releases)
+[![NPM Version](https://img.shields.io/npm/v/%40userfrosting%2Ftheme-adminlte)](https://www.npmjs.com/package/@userfrosting/theme-adminlte)
 ![PHP Version](https://img.shields.io/badge/php-%5E8.1-brightgreen)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 [![Build](https://img.shields.io/github/actions/workflow/status/userfrosting/theme-adminlte/Build.yml?branch=5.1&logo=github)](https://github.com/userfrosting/theme-adminlte/actions)
