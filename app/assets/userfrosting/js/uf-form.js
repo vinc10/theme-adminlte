@@ -225,6 +225,12 @@
      */
     Plugin.prototype._defaultError = function (jqXHR, textStatus, errorThrown) {
         // Error messages
+        if (!this.settings.msgTarget.data('ufAlerts')) {
+            this.settings.msgTarget.ufAlerts();
+        } else {
+            this.settings.msgTarget.ufAlerts('clear');
+        }
+        
         if (this._debugAjax && jqXHR.responseText) {
             this.$element.trigger('submitError.ufForm', [jqXHR, textStatus, errorThrown]);
             this.settings.msgTarget.ufAlerts('push', 'danger', jqXHR.responseJSON.description).ufAlerts('render');
