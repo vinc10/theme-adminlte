@@ -227,8 +227,6 @@
         // Error messages
         if (!this.settings.msgTarget.data('ufAlerts')) {
             this.settings.msgTarget.ufAlerts();
-        } else {
-            this.settings.msgTarget.ufAlerts('clear');
         }
         
         if (this._debugAjax && jqXHR.responseText) {
